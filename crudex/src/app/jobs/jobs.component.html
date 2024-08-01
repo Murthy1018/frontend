@@ -1,0 +1,113 @@
+
+<style>
+    .job-container {
+   margin-top: 100px; 
+  
+  }
+  
+    .job-card {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 40px;
+    width: 60%;
+    height: 160px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .job-img {
+  padding-top: 10px;
+  padding-left: 10px;
+    overflow: hidden;
+    border-radius: 10px 0 0 10px;
+  }
+  
+  .job-img img {
+  
+    object-fit: cover;
+  }
+  
+  .job-info {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .job-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .job-details {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .job-details div {
+    font-size: 16px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+  
+  .job-details div:last-child {
+    margin-right: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .job-card {
+      flex-direction: column;
+    }
+    
+    .job-img {
+      width: 100%;
+      border-radius: 10px 10px 0 0;
+    }
+    
+    .job-info {
+      padding: 10px;
+    }
+    
+    .job-details div {
+      font-size: 14px;
+      margin-right: 10px;
+      margin-bottom: 5px;
+    }
+    
+    .job-details div:last-child {
+      margin-right: 0;
+    }
+    
+  }
+  
+  
+</style>
+<app-nav-bar></app-nav-bar>
+  <div class="job-container">
+    <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+    <div class="input-box">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Enter job title" (keyup)="searchJobs()">
+    </div>
+    <div *ngIf="jobs.length === 0">
+      <p>No jobs found.</p>
+    </div>
+  </div>
+
+  <div class="job-card"  *ngFor="let job of jobs"  [routerLink]="['/jobDetails', job.id]">
+    <div class="job-img">
+      <img src="https://internshala.com/cached_uploads/logo%2F623754dc2819a1647793372.png" alt="Job Logo" width="50" height="50">
+    </div>
+    <div class="job-info">
+      <h2 class="job-title" style="padding-left:20px;">{{ job.jobTitle }}</h2>
+      <div class="job-details">
+        <div class="job-type">Job Type: {{ job.jobType }}</div>
+        <div class="company-name">Company Name: {{ job.companyName }}</div>
+        <div class="salary">Salary: {{ job.salary }}</div>
+        <div class="posted-date" style="padding-left:260px;">Last Date to Apply:{{ job.lastDateToApply }}</div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  

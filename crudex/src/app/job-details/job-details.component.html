@@ -1,0 +1,178 @@
+
+<style>
+    .job-details-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    
+    .job-details-left {
+      flex-basis: 60%;
+      padding-right: 20px;
+    }
+    
+    .job-card {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .job-img {
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      border-radius: 10px 0 0 10px;
+    }
+    
+    .job-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .job-info {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    
+    .job-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    }
+    
+    .job-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    }
+    
+    .job-details > div {
+    margin-right: 20px;
+    }
+    
+    .job-description {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    }
+    
+    .job-description h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    }
+    
+    .job-description ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 20px;
+    }
+    
+    .job-description li {
+    margin-bottom: 10px;
+    }
+    
+    .job-details-right {
+    flex-basis: 35%;
+    }
+    
+    .job-overview {
+    margin-bottom: 40px;
+    }
+    
+    .job-overview h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    }
+    
+    .overview-details {
+    display: flex;
+    flex-direction: column;
+    }
+    
+    .overview-details > div {
+    margin-bottom: 10px;
+    }
+    
+    .apply-now-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+    
+    .apply-now-button:hover {
+    background-color: #0077A3;
+    }
+    
+    .company-details {
+    margin-bottom: 40px;
+    }
+    
+    .company-details h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    }
+    
+    .company-info {
+    display: flex;
+    flex-direction: column;
+    }
+    
+    .company-info > div {
+    margin-bottom: 10px;
+    }
+    
+    </style>
+    <app-nav-bar></app-nav-bar>
+    <div *ngIf="(jobDetails | async) as jobDetails" class="job-details-container">
+      <div class="job-details-left">
+          <div class="job-info">
+            <h2 class="job-title">{{jobDetails.jobTitle}}</h2>
+            <div class="job-details">
+              <!-- <div class="job-type">{{jobDetails.companyName}}</div> -->
+              <div class="company-name">{{jobDetails.companyName}}</div>
+              <div class="location">{{jobDetails.companyState}},{{jobDetails.companyCountry}}</div>
+              <div class="salary">{{jobDetails.salary}}</div>
+              <!-- <div class="posted-date">{{jobDetails.dateCreated}}</div> -->
+            
+          </div>
+        </div>
+        <div class="job-description">
+          <h3>Job Description</h3>
+          <p>{{jobDetails.jobDescription}}</p>
+        </div>
+      </div>
+      <div class="job-details-right">
+        <div class="job-overview">
+          <h3>Job Overview</h3>
+          <div class="overview-details">
+            <!-- <div class="posted-date">Posted Date</div>
+            <div class="location">Location</div> -->
+            <div class="vacancy">Vacancy : {{jobDetails.noofposts}}</div>
+            <div class="job-type">Job Type : {{jobDetails.jobType}}</div>
+            <div class="salary">Salary : {{jobDetails.salary}}</div>
+            <div class="experience">Experience : {{jobDetails.experience}}</div>
+            <div class="specialisation">Specialisation : {{jobDetails.specialisation}}</div>
+            <div class="lastdate">LastDate : {{jobDetails.lastdatetoapply}}</div>
+          </div>
+          <button class="apply-now-button"  (click)="onApplyNowClick()">Apply Now</button>
+        </div>
+        <div class="company-details">
+          <h3>Company Details</h3>
+          <div class="company-info">
+            <div class="company-name">{{jobDetails.companyName}}</div>
+            <div class="company-address">{{jobDetails.companyCity}},{{jobDetails.companyState}},{{jobDetails.companyCountry}}</div>
+            <div class="company-phone">{{jobDetails.contactEmail}}</div>
+            <!-- <div class="company-mail">{{jobDetails.contactEmail}}</div> -->
+            <div class="company-website">{{jobDetails.companyWebsite}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    

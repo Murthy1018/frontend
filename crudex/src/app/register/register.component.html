@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!---<title> Responsive Registration Form | CodingLab </title>--->
+    <link rel="stylesheet" href="register.component.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <app-nav-bar></app-nav-bar>
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form (ngSubmit)="onSubmit()" (submit)="sendEmail()">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" placeholder="email" [(ngModel)]="user.email" name="email" required >
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="password" [(ngModel)]="user.password" name="password" required>
+          </div>
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" placeholder="firstName" [(ngModel)]="user.firstName" name="firstName" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" placeholder="Lastname" [(ngModel)]="user.lastName" name="lastName" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone</span>
+            <input type="text" placeholder="phone" [(ngModel)]="user.phone" name="phone" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Address</span>
+            <input type="text" placeholder="address" [(ngModel)]="user.address" name="address" required>
+          </div>
+      
+        <div class="input-box">
+          <span class="details">Country</span>
+          <input type="text" placeholder="country" [(ngModel)]="user.country" name="country" required>
+        </div>
+
+        <!-- <div class="input-box">
+            <span class="details">Resume</span>
+            <input type="text" placeholder="resume" [(ngModel)]="user.resume" name="resume" required>
+          </div> -->
+
+    </div>
+     
+        <div class="button">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

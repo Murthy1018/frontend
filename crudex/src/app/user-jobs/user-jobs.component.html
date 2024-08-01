@@ -1,0 +1,118 @@
+<!-- <div class="card-deck">
+  <div class="card" *ngFor="let job of jobs"  [routerLink]="['/jobDetails', job.jobID]">
+    <img class="card-img-top" src="{{ job.companyLogo }}" alt="Company logo">
+    <div class="card-body">
+      <h5 class="card-title">{{ job.jobTitle }}</h5>
+      <p class="card-text">{{ job.companyName }}</p>
+      <p class="card-text">{{ job.location }}</p>
+      <p class="card-text">{{ job.salary }}</p>
+      <p class="card-text">{{ job.jobType }}</p>
+    </div>
+  </div>
+</div> -->
+<style>
+    .job-container {
+   margin-top: 100px; /* add top padding to push the job cards down */
+  
+  }
+  
+    .job-card {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 40px;
+    width: 60%;
+    height: 160px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .job-img {
+  padding-top: 10px;
+  padding-left: 10px;
+    overflow: hidden;
+    border-radius: 10px 0 0 10px;
+  }
+  
+  .job-img img {
+  
+    object-fit: cover;
+  }
+  
+  .job-info {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .job-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .job-details {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .job-details div {
+    font-size: 16px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+  }
+  
+  .job-details div:last-child {
+    margin-right: 0;
+  }
+  
+  @media (max-width: 768px) {
+    .job-card {
+      flex-direction: column;
+    }
+    
+    .job-img {
+      width: 100%;
+      border-radius: 10px 10px 0 0;
+    }
+    
+    .job-info {
+      padding: 10px;
+    }
+    
+    .job-details div {
+      font-size: 14px;
+      margin-right: 10px;
+      margin-bottom: 5px;
+    }
+    
+    .job-details div:last-child {
+      margin-right: 0;
+    }
+  }
+  
+  </style>
+  <app-user-profile></app-user-profile>
+  <div class="job-container">
+  <div class="job-card"  *ngFor="let job of jobs"  [routerLink]="['/jobDetails', job.jobID]">
+    <div class="job-img">
+      <img src="https://internshala.com/cached_uploads/logo%2F623754dc2819a1647793372.png" alt="Job Logo" width="50" height="50">
+    </div>
+    <div class="job-info">
+      <h2 class="job-title" style="padding-left:20px;">{{ job.jobTitle }}</h2>
+      <div class="job-details">
+        <div class="job-type">{{ job.location }}</div>
+        <div class="company-name">{{ job.companyName }}</div>
+        <div class="location">{{ job.companyCity }},{{job.companyCountry}}</div>
+        <div class="salary">{{ job.salary }}</div>
+        <div class="posted-date" style="padding-left:260px;">{{ job.lastdatetoapply }}</div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+  <!-- <div *ngIf="selectedJob">
+    <h2>{{ selectedJob.jobTitle }}</h2>
+    <p>{{ selectedJob.jobDescription }}</p>
+    <button class="btn btn-primary" [disabled]="selectedJob.applied" (click)="applyJob(selectedJob)">Apply</button>
+  </div> -->

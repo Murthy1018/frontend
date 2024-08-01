@@ -1,0 +1,28 @@
+<app-user-profile></app-user-profile>
+<table>
+    <thead>
+      <tr style="border-bottom: 1px solid;">
+        <th>Applied Jobs</th>
+      </tr>
+      <!-- <hr/> -->
+      <tr>
+        <th>Job Title</th>
+        <th>Company</th>
+      </tr>
+    </thead>
+
+      <tr *ngFor="let job of appliedJobs | async">
+        <td> {{job.jobTitle}} </td>
+        <td> {{job.company.name}} </td>
+      </tr>
+      <!-- <tr>
+        <td>Java Architect</td>
+
+        
+      </tr>
+      <tr>
+        <td>Integration Engineer</td>
+        
+      </tr> -->
+  </table>
+

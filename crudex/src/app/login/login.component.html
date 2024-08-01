@@ -1,0 +1,26 @@
+
+<app-nav-bar></app-nav-bar>
+<div class="wrapper">
+  <h1>Hello Again!</h1>
+<form (ngSubmit)="onLoginSubmit()">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
+  </div>
+  <!-- <div class="form-group">
+    <label for="userType">User Type</label>
+    <select class="form-control" id="userType" name="userType" [(ngModel)]="userType" required>
+      <option value="user">User</option>
+      <option value="admin">Admin</option>
+    </select>
+  </div> -->
+  <button type="submit" class="btn btn-primary">Login</button>
+  <div class="not-member">
+    Not a member? <a href="#">Register Now</a>
+  </div>
+</form>
+</div> 
